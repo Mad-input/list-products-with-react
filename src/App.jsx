@@ -16,7 +16,7 @@ function App () {
 
   const addToCart = (product) => {
     const newProductsCart = [...productCart, product]
-    localStorage.setItem('productsCart', JSON.stringify(newProductsCart))
+    saveInStorage('productsCart', newProductsCart)
     setProdutsCart(newProductsCart)
   }
   const updateProductCart = (id, count) => {
@@ -26,14 +26,19 @@ function App () {
       }
       return product
     })
-    localStorage.setItem('productsCart', JSON.stringify(newProductsCart))
+    saveInStorage('productsCart', newProductsCart)
     setProdutsCart(newProductsCart)
   }
   const dropProductCart = (id) => {
     const newProductCart = productCart.filter((product) => product.id !== id)
-    localStorage.setItem('productsCart', JSON.stringify(newProductCart))
+    saveInStorage('productsCart', newProductCart)
     setProdutsCart(newProductCart)
   }
+
+  function saveInStorage (name, items) {
+    localStorage.setItem(name, JSON.stringify(items))
+  }
+
   return (
     <>
       <main>

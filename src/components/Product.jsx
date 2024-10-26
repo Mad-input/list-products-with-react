@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import ButtonAdd from './ButtonAdd'
 
 const formatNumber = (number) => number.toString().padEnd(3, '0').replace(/\B(?=(\d{2})+(?!\d))/g, ',')
