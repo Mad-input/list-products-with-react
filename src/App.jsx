@@ -5,6 +5,7 @@ import '@fontsource-variable/red-hat-text'
 import data from './data.json'
 import Product from './components/Product.jsx'
 import Cart from './components/Cart.jsx'
+import ModalConfirm from './components/ModalConfirm.jsx'
 
 function App () {
   // eslint-disable-next-line no-unused-vars
@@ -13,6 +14,7 @@ function App () {
     JSON.parse(localStorage.getItem('productsCart')) ||
     []
   )
+  const [showModal, setShowModal] = useState(false)
 
   const addToCart = (product) => {
     const newProductsCart = [...productCart, product]
@@ -61,7 +63,8 @@ function App () {
           }
         </section>
       </main>
-        <Cart products={productCart} dropProductCart={dropProductCart}/>
+        <Cart products={productCart} dropProductCart={dropProductCart} showModal={setShowModal}/>
+        <ModalConfirm open={showModal} setShow={setShowModal} products={productCart} setProductsCart={setProdutsCart} ></ModalConfirm>
     </>
   )
 }

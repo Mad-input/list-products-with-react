@@ -3,7 +3,7 @@ import { FiMinusCircle } from 'react-icons/fi'
 import { IoAddCircleOutline } from 'react-icons/io5'
 import { useState } from 'react'
 
-export default function ButtonAdd ({ selected, addToCart, updateProductCart, name, price, id }) {
+export default function ButtonAdd ({ selected, addToCart, updateProductCart, name, price, id, urlImage }) {
   const [count, setCount] = useState(1)
 
   const increment = () => {
@@ -17,7 +17,7 @@ export default function ButtonAdd ({ selected, addToCart, updateProductCart, nam
   return (
     !selected
       ? <button className="btn-add-to-cart" onClick={() => {
-        addToCart({ id, name, price, count })
+        addToCart({ id, name, price, count, urlImage })
       } }>
         <span><MdOutlineAddShoppingCart /> Add to Cart</span>
       </button>

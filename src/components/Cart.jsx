@@ -1,21 +1,13 @@
 import { useEffect, useMemo, useState } from 'react'
 import { IoIosCloseCircleOutline } from 'react-icons/io'
 import { PiTree } from 'react-icons/pi'
+import { calculateTotal, calculateTotalCount } from '../hook/useTotal'
+import storeModal from '../store/useStore.js'
 
-const calculateTotal = (products) => {
-  return products.reduce((total, product) => {
-    return total + (product.price * product.count)
-  }, 0)
-}
-const calculateTotalCount = (products) => {
-  return products.reduce((total, product) => {
-    return total + product.count
-  }, 0)
-}
-
-export default function Cart ({ products, dropProductCart }) {
+export default function Cart ({ products, dropProductCart, showModal }) {
   const [total, setTotal] = useState(0)
   const [totalCount, setTotalCount] = useState(0)
+  const { setShow } = storeModal()
 
   const totalMemo = useMemo(() => calculateTotal(products), [products])
   const totalCountMemo = useMemo(() => calculateTotalCount(products), [products])
@@ -56,7 +48,7 @@ export default function Cart ({ products, dropProductCart }) {
             <strong className="total">${total}</strong>
         </div>
         <p className='tag'><PiTree /> This is a <span>carbon-neutral</span> delivery</p>
-        <button className='btn-confirm-order'>Confirm Order</button>
+        <button className='btn-confirm-order' onClick={setShow}>Confirm Order</button>
     </>
     }
 </aside>

@@ -14,7 +14,9 @@ export default function Product ({ id, image, name, category, price, addToCart, 
         updateProductCart={updateProductCart}
         name={name}
         price={price}
-        id={id}/>
+        id={id}
+        urlImage={image}
+        />
         <div className="product-datails">
             <small className="product-category">{category}</small>
             <strong className="product-name">{name}</strong>

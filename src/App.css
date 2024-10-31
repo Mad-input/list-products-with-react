@@ -14,6 +14,9 @@
 
 * {
   font-family: "Red Hat Text Variable", sans-serif;
+  @media (width < 29.0625rem) {
+    font-size: 0.8125rem;
+  }
 }
 
 body {
@@ -21,7 +24,7 @@ body {
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  padding: 100px 100px;
+  padding: 6.25rem 6.25rem;
   background: var(--Rose-50);
 }
 
@@ -43,7 +46,7 @@ main {
   display: flex;
   align-items: center;
   flex-wrap: wrap;
-  gap: 20px;
+  gap: 1.25rem;
 
   .product {
     display: flex;
@@ -51,9 +54,9 @@ main {
 
     .banner {
       img {
-        width: 300px;
-        border-radius: 10px;
-        border: 2px solid transparent;
+        width: 18.75rem;
+        border-radius: 0.625rem;
+        border: 0.125rem solid transparent;
       }
     }
 
@@ -73,13 +76,13 @@ main {
       line-height: 1.5;
       align-self: center;
       margin: 0;
-      margin-top: -25px;
-      border: 1px solid var(--Rose-400);
-      padding: 10px 20px;
-      border-radius: 20px;
+      margin-top: -1.5625rem;
+      border: 0.0625rem solid var(--Rose-400);
+      padding: 0.625rem 1.25rem;
+      border-radius: 1.25rem;
       background: #fff;
       font-weight: 600;
-      font-size: 15px;
+      font-size: 0.9375rem;
       cursor: pointer;
       color: var(--Rose-900);
       transition: 0.3s;
@@ -89,17 +92,17 @@ main {
       }
       svg {
         vertical-align: top;
-        margin-right: 5px;
+        margin-right: 0.3125rem;
         fill: var(--Red);
-        width: 20px;
-        height: 20px;
+        width: 1.25rem;
+        height: 1.25rem;
       }
     }
     .counter {
       background: var(--Red);
       border: none;
       color: #fff;
-      gap: 30px;
+      gap: 1.875rem;
       &:hover {
         color: #fff;
       }
@@ -118,7 +121,7 @@ main {
           }
         }
         svg {
-          --size: 20px;
+          --size: 1.25rem;
           margin: 0;
           stroke: #fff;
           width: var(--size);
@@ -130,8 +133,8 @@ main {
       display: flex;
       justify-content: center;
       flex-direction: column;
-      gap: 5px;
-      padding: 20px 0;
+      gap: 0.3125rem;
+      padding: 1.25rem 0;
       .product-category {
         color: var(--Rose-400);
       }
@@ -145,12 +148,13 @@ main {
   }
 }
 
-.cart {
+.cart, .modal-confirm {
   flex: 1;
-  max-width: min(100%, 375px);
+  max-width: min(100%, 23.4375rem);
   background: #fff;
   height: fit-content;
-  padding: 30px;
+  padding: 1.875rem;
+
   .cartTitle {
     color: var(--Red);
   }
@@ -160,9 +164,9 @@ main {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 20px;
+    padding: 1.25rem;
     img {
-      width: 170px;
+      width: 10.625rem;
     }
     .message-empty {
       color: var(--Rose-400);
@@ -174,17 +178,17 @@ main {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-bottom: 2px solid var(--Rose-50);
-    padding-bottom: 10px;
+    border-bottom: 0.125rem solid var(--Rose-50);
+    padding-bottom: 0.625rem;
     .product-details-cart {
       .prodcut-cart-title {
-        font-size: 15px;
+        font-size: 0.9375rem;
         color: var(--Rose-900);
         font-weight: 500;
       }
       .count-total {
         display: flex;
-        gap: 10px;
+        gap: 0.625rem;
         .count {
           color: var(--Red);
           font-weight: bold;
@@ -205,8 +209,8 @@ main {
       background: none;
       svg {
         vertical-align: bottom;
-        width: 20px;
-        height: 20px;
+        width: 1.25rem;
+        height: 1.25rem;
         fill: var(--Rose-400);
       }
     }
@@ -215,28 +219,28 @@ main {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px 0;
+    padding: 1.25rem 0;
     .total {
-      font-size: 30px;
+      font-size: 1.875rem;
       color: var(--Rose-900);
     }
 
     small {
-      font-size: 16px;
+      font-size: 1rem;
     }
   }
   .tag {
     background: var(--Rose-50);
-    padding: 15px 30px;
+    padding: 0.9375rem 1.875rem;
     color: var(--Rose-900);
     line-height: 1.5;
-    border-radius: 8px;
+    border-radius: 0.5rem;
     svg {
       fill: var(--Green);
-      width: 20px;
-      height: 20px;
+      width: 1.25rem;
+      height: 1.25rem;
       vertical-align: top;
-      margin-right: 10px;
+      margin-right: 0.625rem;
     }
     span {
       font-weight: 600;
@@ -245,8 +249,8 @@ main {
 
   .btn-confirm-order {
     width: 100%;
-    padding: 15px;
-    border-radius: 25px;
+    padding: 0.9375rem;
+    border-radius: 1.5625rem;
     background: var(--Red);
     border: none;
     color: #fff;
@@ -255,6 +259,84 @@ main {
     transition: 0.3s;
     &:hover {
       background: var(--Red-Hover);
+    }
+  }
+}
+
+.modal-overlay  {
+  &.close {
+    display: none;
+  }
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, .5);
+  .modal-confirm {
+    position: absolute;
+    inset: 0;
+    margin: auto;
+    padding: 3.125rem;
+    border-radius: 0.625rem;
+
+    h1 {
+      font-size: 2.5rem;
+      margin: 0.625rem 0;
+      color: var(--Rose-900);
+    }
+
+    .confirm-decription {
+      color: var(--Rose-500);
+      margin: 0.625rem 0;
+    }
+
+    .container-products {
+      border-radius: 0.9375rem;
+      margin: 1.875rem 0;
+      background: var(--Rose-50);
+      padding: 1.25rem;
+      .products {
+        padding: 0;
+        .product-cart {
+          display: flex;
+          gap: 1.25rem;
+          width: 100%;
+          border-bottom: 0.0625rem solid var(--Rose-100);
+          .product-details-cart {
+            flex: 1;
+            .prodcut-cart-title {
+              margin: 0 0 1.25rem 0;
+            }
+          }
+          img {
+            border-radius: 0.5rem;
+          }
+          .product-cart-total {
+            font-weight: 500;
+            color: var(--Rose-500);
+          }
+        }
+      }
+
+      .total-products {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        & span:nth-child(1) {
+          color: var(--Rose-900);
+        }
+
+        & span:nth-child(2) {
+          color: var(--Rose-900);
+          font-weight: bold;
+          font-size: 1.5625rem;
+        }
+      }
+    }
+
+    @media (width < 29.0625rem) {
+      padding: 1.25rem;
     }
   }
 }
