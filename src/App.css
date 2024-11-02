@@ -48,6 +48,10 @@ main {
   flex-wrap: wrap;
   gap: 1.25rem;
 
+  @media (width < 600px) {
+    justify-content: center;
+  }
+
   .product {
     display: flex;
     flex-direction: column;
